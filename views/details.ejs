@@ -1,0 +1,55 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+
+            <div class="details content">
+
+                <h2>
+                    <%= animal.title %>
+                </h2>
+                <div class="content">
+                    <p>
+                        <%= animal.body %>
+                    </p>
+                </div>
+
+                <div class="button">
+                    <a class="edit" href="/<%= collectionType %>/update/<%= animal._id %>">
+                        <!-- <img src="/trashcan.svg" alt="edit icon"> -->
+                        Edit
+                    </a>
+                    <a class="delete" data-doc="<%= animal._id %>">
+                        <!-- <img src="/trashcan.svg " alt="delete icon "> -->
+                        Delete
+                    </a>
+                </div>
+
+
+
+            </div>
+
+
+            <script>
+                const collectionType = '<%= collectionType %>';
+                const deleteButton = document.querySelector('a.delete');
+                deleteButton.addEventListener('click', (e) => {
+                    const docId = deleteButton.dataset.doc;
+                    const newEndpoint = `/${collectionType}/${docId}`;
+
+                    fetch(newEndpoint, {
+                            method: 'DELETE',
+                        })
+                        .then(response => response.json())
+                        .then(data => window.location.href = data.redirect)
+                        .catch(err => console.log(err));
+                });
+            </script>
+
+
+
+            <%- include("./partials/footer.ejs") %>
+    </body>
+
+</html>

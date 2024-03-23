@@ -1,0 +1,66 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+
+            <div class="index content">
+
+                <% if (collectionType==='land_animals' ) { %>
+                    <h2>All Land Animals</h2>
+                    <% if (animals.length> 0) { %>
+                        <% animals.forEach(land_animal=> { %>
+                            <a class="single" href="/land_animals/<%= land_animal._id %>">
+                                <h3 class="title">
+                                    <%= land_animal.title %>
+                                </h3>
+                                <p class="snippet">
+                                    <%= land_animal.snippet %>
+                                </p>
+                            </a>
+                            <% }) %>
+                                <% } else { %>
+                                    <p>There are no land animals to display...</p>
+                                    <% } %>
+
+                                        <% } 
+                                        
+                                    else if (collectionType==='aquatic_animals' ) { %>
+                                            <h2>All Aquatic Animals</h2>
+                                            <% if (animals.length> 0) { %>
+                                                <% animals.forEach(aquatic_animal=>{ %>
+                                                    <a class="single" href="/aquatic_animals/<%= aquatic_animal._id %>">
+                                                        <h3 class="title">
+                                                            <%= aquatic_animal.title %>
+                                                        </h3>
+                                                        <p class="snippet">
+                                                            <%= aquatic_animal.snippet %>
+                                                        </p>
+                                                        <% }) %>
+                                                            <% } else { %>
+                                                                <p>There are no aquatic animal to display...</p>
+                                                                <% } %>
+
+                                                                    <% } else if (collectionType==='birds' ) { %>
+                                                                        <h2>All Birds</h2>
+                                                                        <% if (animals.length> 0) { %>
+                                                                            <% animals.forEach(bird=>{ %>
+                                                                                <a class="single" href="/birds/<%= bird._id %>">
+                                                                                    <h3 class="title">
+                                                                                        <%= bird.title %>
+                                                                                    </h3>
+                                                                                    <p class="snippet">
+                                                                                        <%= bird.snippet %>
+                                                                                    </p>
+                                                                                    <% }) %>
+                                                                                        <% } else { %>
+                                                                                            <p>There are no bird to display...</p>
+                                                                                            <% } %>
+
+                                                                                                <% } %>
+
+            </div>
+            <%- include("./partials/footer.ejs") %>
+    </body>
+
+</html>

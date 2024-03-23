@@ -1,0 +1,20 @@
+<nav>
+    <div class="site-title">
+        <a href="/">
+            <h1>Welcome to the zoo!</h1>
+        </a>
+        <p>A Zoo Site</p>
+    </div>
+    <ul>
+        <% if (collectionType === 'zoo') { %>
+            <li><a href="/land_animals">Land</a></li>
+            <li><a href="/aquatic_animals">Aqua</a></li>
+            <li><a href="/birds">Bird</a></li>
+            <% } else { %>
+                <li><a href="/land_animals">Land</a></li>
+                <li><a href="/aquatic_animals">Aqua</a></li>
+                <li><a href="/birds">Bird</a></li>
+                <li><a href="/<%= collectionType %>/create">Add an animal</a></li>
+                <% } %>
+    </ul>
+</nav>
