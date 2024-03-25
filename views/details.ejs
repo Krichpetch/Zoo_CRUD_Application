@@ -4,52 +4,80 @@
     <body>
         <%- include("./partials/nav.ejs") %>
 
-            <div class="details content">
+            <div class="details">
 
-                <h2>
-                    <%= animal.title %>
-                </h2>
-                <div class="content">
-                    <p>
-                        <%= animal.body %>
-                    </p>
+                <section class="details-content">
+                    <div class="image-container">
+                        <img src="<%= animal.imgURL %>" class="image" alt="<%= animal.name %>">
+
+
+                        <div class="buttons">
+                            <a href="/<%= collectionType %>/update/<%= animal._id %>">
+                                <button class="editbtn" role="button"> Edit</button>
+                            </a>
+
+                            <a class="delete" data-doc="<%= animal._id %>">
+                                <button class="deletebtn" role="button"> Delete</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="detail-text">
+                        <div>
+                            <p style="font-size: 40px; color: black; margin-left: 20px; "> Common name:
+                                <%= animal.name %>
+                            </p>
+                            <p style="font-size: 30px; color: black; margin-left: 60px; "> Scientific Name:
+                                <%= animal.sciName %>
+                            </p>
+                            <p style="font-size: 30px; color: black; margin-left: 60px; "> Kingdom-Species:
+                                <%= animal.species %>
+                            </p>
+                            <p style="font-size: 30px; color: black; margin-left: 60px; "> Habitat:
+                                <%= animal.habitat %>
+                            </p>
+                            <p style="font-size: 30px; color: black; margin-left: 60px; "> Lifespan:
+                                <%= animal.lifespan %> years
+                            </p>
+                            <p style="font-size: 30px; color: black; margin-left: 60px; "> Details:
+                                <%= animal.fullDetail %>
+                            </p>
+
+                        </div>
+
+
+
+                </section>
+
                 </div>
-
-                <div class="button">
-                    <a class="edit" href="/<%= collectionType %>/update/<%= animal._id %>">
-                        <!-- <img src="/trashcan.svg" alt="edit icon"> -->
-                        Edit
-                    </a>
-                    <a class="delete" data-doc="<%= animal._id %>">
-                        <!-- <img src="/trashcan.svg " alt="delete icon "> -->
-                        Delete
-                    </a>
-                </div>
-
 
 
             </div>
 
-
-            <script>
-                const collectionType = '<%= collectionType %>';
-                const deleteButton = document.querySelector('a.delete');
-                deleteButton.addEventListener('click', (e) => {
-                    const docId = deleteButton.dataset.doc;
-                    const newEndpoint = `/${collectionType}/${docId}`;
-
-                    fetch(newEndpoint, {
-                            method: 'DELETE',
-                        })
-                        .then(response => response.json())
-                        .then(data => window.location.href = data.redirect)
-                        .catch(err => console.log(err));
-                });
-            </script>
-
-
-
             <%- include("./partials/footer.ejs") %>
+
+                <script>
+                    const collectionType = '<%= collectionType %>';
+                    const deleteButton = document.querySelector('a.delete');
+
+                    deleteButton.addEventListener('click', (e) => {
+                        if (confirm("Are you sure you want to delete this animal?")) {
+                            const docId = deleteButton.dataset.doc;
+                            const newEndpoint = `/${collectionType}/${docId}`;
+
+                            fetch(newEndpoint, {
+                                    method: 'DELETE',
+                                })
+                                .then(response => response.json())
+                                .then(data => window.location.href = data.redirect)
+                                .catch(err => console.log(err));
+                        }
+                    });
+                </script>
+
+
+
     </body>
+
 
 </html>

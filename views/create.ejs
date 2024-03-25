@@ -6,13 +6,31 @@
 
             <div class="create-blog content">
                 <form action="<%= endpoint %>" method="POST">
-                    <label for="title">Animal Title:</label>
-                    <input type="text" id="title" name="title" required>
-                    <label for="snippet">Animal snippet:</label>
-                    <input type="text" id="snippet" name="snippet" required>
-                    <label for="body">Animal body:</label>
-                    <textarea id="body" name="body" required></textarea>
-                    <button>Submit</button>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="sciName">Scientific Name:</label>
+                    <textarea id="sciName" name="sciName" required></textarea>
+
+                    <label for="species">Kingdom-Species:</label>
+                    <textarea id="species" name="species" required></textarea>
+
+                    <label for="habitat">Habitat:</label>
+                    <textarea id="habitat" name="habitat" required></textarea>
+
+                    <label for="lifespan">Lifespan:</label>
+                    <input type="text" id="lifespan" name="lifespan" maxlength="10" required>
+
+                    <label for="fullDetail">Details:</label>
+                    <textarea id="fullDetail" name="fullDetail" required></textarea>
+
+                    <label for="shortDetail">Short details (max 100 characters):</label>
+                    <input type="text" id="shortDetail" name="shortDetail" maxlength="100" required>
+
+                    <label for="imgURL">imgURL:</label>
+                    <input type="text" id="imgURL" name="imgURL">
+
+                    <button class="submitbtn">Submit</button>
                 </form>
             </div>
             <%- include("./partials/footer.ejs") %>

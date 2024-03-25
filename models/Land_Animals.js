@@ -2,15 +2,35 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const landSchema = new Schema({
-    title: {
+    name: {
         type: String,
         required: true,
     },
-    snippet: {
+    shortDetail: {
         type: String,
         required: true,
     },
-    body: {
+    sciName: {
+        type: String,
+        required: true
+    },
+    species: {
+        type: String,
+        required: true
+    },
+    habitat: {
+        type: String,
+        required: true
+    },
+    lifespan: {
+        type: Number,
+        required: true
+    },
+    fullDetail: {
+        type: String,
+        required: true
+    },
+    imgURL: {
         type: String,
         required: true
     },

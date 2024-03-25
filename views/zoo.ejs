@@ -1,12 +1,279 @@
 <html lang="en">
 <%- include("./partials/head.ejs") %>
 
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: #222;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        img {
+            vertical-align: middle;
+        }
+        /* Position the image container (needed to position the left and right arrows) */
+        
+        .container {
+            position: relative;
+        }
+        /* Hide the images by default */
+        
+        .mySlides {
+            display: none;
+        }
+        /* Add a pointer when hovering over the thumbnail images */
+        
+        .cursor {
+            cursor: pointer;
+        }
+        /* Next & previous buttons */
+        
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        /* Position the "next button" to the right */
+        
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        /* On hover, add a black background color with a little bit see-through */
+        
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        /* Number text (1/3 etc) */
+        
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        /* Container for image text */
+        
+        .caption-container {
+            text-align: center;
+            background-color: #222;
+            padding: 2px 16px;
+            color: white;
+        }
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* Six columns side by side */
+        
+        .column {
+            float: left;
+            width: 16.66%;
+        }
+        /* Add a transparency effect for thumnbail images */
+        
+        .demo {
+            opacity: 0.6;
+        }
+        
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+        
+        .containerG {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .mySlides {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .caption-container {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        /* ------------animal-container-------------- */
+        /* --------------------------- */
+    </style>
+
     <body>
+
         <%- include("./partials/nav.ejs") %>
 
-            <div class="index content">
+            <!-- <section style="padding: 70px;">
+                <section style="display: flex; align-items: center; text-align: center; margin: auto;">
+                    <a href="/land_animals">
+                        <div style="justify-content: space-between;  margin-right: 40px;"><img src="/images/Land_Animal.jpg" alt="" style="border-radius: 100%; border: 10px solid rgb(0, 0, 0);width: 300px; height: 300px;"></div>
+                    </a>
+                    <a href="/aquatic_animals">
+                        <div style="justify-content: space-between; margin-right: 40px;"><img src="/images/Aquatic_Animal.jpg" alt="" style="border-radius: 100%; border: 10px solid rgb(0, 0, 0);  width: 300px; height: 300px; background-color: aqua;"></div>
+                    </a>
+                    <a href="/birds">
+                        <div style="justify-content: space-between; margin-right: 40px;"><img src="/images/Birds.jpg" alt="" style="border-radius: 100%; border: 10px solid rgb(0, 0, 0); width: 300px; height: 300px; "></div>
+                    </a>
+                </section>
+            </section> -->
+            <!-- <h2 style="text-align:center">Slideshow Gallery</h2> -->
+
+            <div class="containerG">
+                <div class="mySlides">
+                    <div class="numbertext">1 / 6</div>
+                    <img src="/images/carousel/FirstPage.jpg" style="width:100%;">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">2 / 6</div>
+                    <img src="/images/carousel/SecondPage.png" style="width:100%;">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 6</div>
+                    <img src="/images/carousel/ThridPage.png" style="width:100%;">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">4 / 6</div>
+                    <img src="/images/carousel/FourthPage.png" style="width:100%;">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">5 / 6</div>
+                    <img src="/images/carousel/FifthPage.jpg" style="width:100%;">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">6 / 6</div>
+                    <img src="/images/carousel/SixthPage.jpg" style="width:100%;">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+
+                <div class="caption-container">
+                    <p id="caption"></p>
+                </div>
+
+                <div class="row">
+                    <div class="column">
+                        <img class="demo cursor" src="/images/carousel/FirstPage.jpg" style="width:100%;height: 200px; " onclick="currentSlide(1)" alt="Welcome to I-ZOO!">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="/images/carousel/SecondPage.png" style="width:100%;height: 200px;" onclick="currentSlide(2)" alt="Land Animal">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="/images/carousel/ThridPage.png" style="width:100%;height: 200px;" onclick="currentSlide(3)" alt="Poultry Animal">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="/images/carousel/FourthPage.png" style="width:100%;height: 200px;" onclick="currentSlide(4)" alt="Amphibian Animal">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="/images/carousel/FifthPage.jpg" style="width:100%;height: 200px;" onclick="currentSlide(5)" alt="Lin Bing and Friends">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="/images/carousel/SixthPage.jpg" style="width:100%;height: 200px;" onclick="currentSlide(6)" alt="Siuuuu">
+                    </div>
+                </div>
             </div>
+
+            <script>
+                let slideIndex = 1;
+                showSlides(slideIndex);
+
+                function plusSlides(n) {
+                    showSlides(slideIndex += n);
+                }
+
+                function currentSlide(n) {
+                    showSlides(slideIndex = n);
+                }
+
+                function showSlides(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("mySlides");
+                    let dots = document.getElementsByClassName("demo");
+                    let captionText = document.getElementById("caption");
+                    if (n > slides.length) {
+                        slideIndex = 1
+                    }
+                    if (n < 1) {
+                        slideIndex = slides.length
+                    }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndex - 1].style.display = "block";
+                    dots[slideIndex - 1].className += " active";
+                    captionText.innerHTML = dots[slideIndex - 1].alt;
+                }
+            </script>
+
+
+            <!-- <div class="index-content"> -->
+            <!-- <img src="https://assets.beartai.com/uploads/2023/10/zootopia.jpg" alt="" style="width: 100%; height: 700px; margin-top: 280px;">
+                <br>
+            </div> -->
+            <!-- ------------------------------------------ -->
+            <h2></h2>
+            <h1></h1>
+            <div class="index-nav-title">
+                <h2>See our Animals</h2>
+            </div>
+
+            <nav class="index-nav">
+                <section class="container">
+                    <div class="animal-container">
+                        <a href="/land_animals">
+                            <img src="/images/Land_Animal.jpg" class="animal-container-image" alt="Land Animal">
+                            <div class="animal-overlay">Land Animals</div>
+                        </a>
+                    </div>
+
+
+                    <div class="animal-container">
+                        <a href="/aquatic_animals">
+                            <img src="/images/Aquatic_Animal.jpg" class="animal-container-image" alt="Aquatic Animal">
+                            <div class="animal-overlay">Aquatic Animals</div>
+                        </a>
+                    </div>
+
+
+                    <div class="animal-container">
+                        <a href="/birds">
+                            <img src="/images/Birds.jpg" class="animal-container-image" alt="Birds">
+                            <div class="animal-overlay">Birds</div>
+                        </a>
+                    </div>
+                </section>
+            </nav>
+            <!-- </div> -->
+
+            <!-- ------------------------------------------ -->
             <%- include("./partials/footer.ejs") %>
     </body>
+
 
 </html>

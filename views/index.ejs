@@ -4,63 +4,77 @@
     <body>
         <%- include("./partials/nav.ejs") %>
 
-            <div class="index content">
+            <!-- <div class="index content"> -->
 
-                <% if (collectionType==='land_animals' ) { %>
-                    <h2>All Land Animals</h2>
+            <!-- Render List of land animals
+
+                <% if (animals.length> 0) { %>
+                    <% animals.forEach(animal=> { %>
+                        <a class="single" href="/<%= collectionType %>/<%= animal._id %>">
+                            <h3 class="title">
+                                <%= animal.name %>
+                            </h3>
+                            <p class="snippet">
+                                <%= animal.shortDetail %>
+                            </p>
+                        </a>
+                        <% }) %>
+                            <% } else { %>
+                                <p>There are no land animals to display...</p>
+                                <% } %> -->
+
+
+            <!-- </div> -->
+            <section class="animals-list">
+                <h2 class="list-title">
+                    <%= title %> in I-ZOO
+                </h2>
+                <ul class="cards">
                     <% if (animals.length> 0) { %>
-                        <% animals.forEach(land_animal=> { %>
-                            <a class="single" href="/land_animals/<%= land_animal._id %>">
-                                <h3 class="title">
-                                    <%= land_animal.title %>
-                                </h3>
-                                <p class="snippet">
-                                    <%= land_animal.snippet %>
-                                </p>
-                            </a>
+                        <% animals.forEach(animal=> { %>
+                            <li>
+                                <a class="card" href="/<%= collectionType %>/<%= animal._id %>">
+                                    <img src="<%= animal.imgURL %>" class="card__image" alt="" />
+                                    <div class="card__overlay">
+                                        <div class="card__header">
+                                            <div class="card__header-text">
+                                                <h3 class="card__title"><%= animal.name %></h3>
+                                            </div>
+                                        </div>
+                                        <p class="card__description"><%= animal.shortDetail %></p>
+                                    </div>
+                                </a>
+                            </li>
                             <% }) %>
                                 <% } else { %>
-                                    <p>There are no land animals to display...</p>
+                                    <p>There are no
+                                        <%= collectionType %> to display...</p>
                                     <% } %>
+                </ul>
 
-                                        <% } 
-                                        
-                                    else if (collectionType==='aquatic_animals' ) { %>
-                                            <h2>All Aquatic Animals</h2>
-                                            <% if (animals.length> 0) { %>
-                                                <% animals.forEach(aquatic_animal=>{ %>
-                                                    <a class="single" href="/aquatic_animals/<%= aquatic_animal._id %>">
-                                                        <h3 class="title">
-                                                            <%= aquatic_animal.title %>
-                                                        </h3>
-                                                        <p class="snippet">
-                                                            <%= aquatic_animal.snippet %>
-                                                        </p>
-                                                        <% }) %>
-                                                            <% } else { %>
-                                                                <p>There are no aquatic animal to display...</p>
-                                                                <% } %>
+                <!-- <div style="width: 200px; height: 200px; background-color: aquamarine; ">
+                    <div>
+                        <img src="" alt="">
+                        <p>as</p>
+                    </div>
+                </div>
+                <div style="width: 200px; height: 200px; background-color: aquamarine; margin-left: 100px; ">
+                    <div>
+                        <img src="" alt="">
+                        <p>as</p>
+                    </div>
+                </div>
+                <div style="width: 200px; height: 200px; background-color: aquamarine; margin-left: 100px; ">
+                    <div>
+                        <img src="" alt="">
+                        <p>as</p>
+                    </div>
+                </div> -->
+            </section>
 
-                                                                    <% } else if (collectionType==='birds' ) { %>
-                                                                        <h2>All Birds</h2>
-                                                                        <% if (animals.length> 0) { %>
-                                                                            <% animals.forEach(bird=>{ %>
-                                                                                <a class="single" href="/birds/<%= bird._id %>">
-                                                                                    <h3 class="title">
-                                                                                        <%= bird.title %>
-                                                                                    </h3>
-                                                                                    <p class="snippet">
-                                                                                        <%= bird.snippet %>
-                                                                                    </p>
-                                                                                    <% }) %>
-                                                                                        <% } else { %>
-                                                                                            <p>There are no bird to display...</p>
-                                                                                            <% } %>
 
-                                                                                                <% } %>
-
-            </div>
-            <%- include("./partials/footer.ejs") %>
     </body>
+    <!-- ------------------------------------------ -->
+    <%- include("./partials/footer.ejs") %>
 
 </html>

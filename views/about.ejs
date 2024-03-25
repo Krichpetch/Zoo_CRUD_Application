@@ -1,17 +1,113 @@
-<html lang="en">
-<%- include("./partials/head.ejs") %>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/aboutStyle.css">
 
-    <body>
-        <%- include("./partials/nav.ejs") %>
+    <title>I-BIT I-Zoo |About us
+    </title>
+</head>
 
-            <div class="about content">
-                <h2>About Us</h2>
-                <p>This is about blog</p>
-                <p></p>
-                <p></p>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="row">
+                <div class="nav-column">
+                    <div class="site-title">
+                        <a href="/zoo"><img src="/images/LOGO-KMUTNB.png " alt="" style="width: 80px; height: 80px;"></a>
+
+                        <a href="/zoo">
+                                WELCOME TO THE I-ZOO!
+                            </a>
+
+                        <!-- <h1>Welcome to the zoo!</h1> -->
+                        <!-- </a>
+                        <p style="font-size:20px;margin-left: 20px;margin-top: 10px;">A Zoo Site</p> -->
+                    </div>
+                </div>
+                <div class="nav-column">
+                    <ul class="buttons">
+                        <li>
+                            <a href="/land_animals ">
+                                <button class="navbtn" role="button">Land Animals</button>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="/aquatic_animals ">
+                                <button class="navbtn" role="button">Aquatic Animals</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/birds ">
+                                <button class="navbtn" role="button">Birds</button>
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <%- include("./partials/footer.ejs") %>
-    </body>
+        </div>
+    </nav>
+
+
+    <!--================== Goal Section Starts from Here ==================-->
+    <section id="goal">
+        <div class="goal-left">
+            <h2 style="color: black;">Our Goal</h2>
+            <p style="color: black;">This is the final project for the foundation in big Data course, academic year 2023</p>
+            <p style="color: black;">In this project, we aim to:</p>
+            <ul>
+                <li style="color: #222;"> Create a CRUD application with node.js </li>
+                <li style="color: #222;"> Follow the MVC design pattern </li>
+                <li style="color: #222;"> Connect the Front-End part to the MongoDB database</li>
+                <li style="color: #222;"> That's why we came to the conclusion to create a "ZOO" website</li>
+            </ul>
+        </div>
+        <div class="goal-right">
+            <img src="/images/Teie.jpg" alt="">
+        </div>
+    </section>
+    <!--================== Goal Section Ends Here -->
+
+    <!--================== Our Team Section Starts from Here ==================-->
+    <section id="our-Team">
+        <h2 style="color: black;">Group 2 : "For JART" Members</h2>
+        <div class="teamContainer">
+            <div class="team-item">
+                <img src="/images/Team_members/Petch.png" alt="">
+                <h5 class="member-name">Krichpetch Sintanakul</h5>
+                <span class="role">ID:6507012662021</span>
+            </div>
+            <div class="team-item">
+                <img src="/images/Team_members/Fong.jpg" alt="">
+                <h5 class="member-name">Teerapat Chuenklin</h5>
+                <span class="role">ID:6507012660184</span>
+            </div>
+            <div class="team-item">
+                <img src="/images/Team_members/Art.jpg" alt="">
+                <h5 class="member-name">NATTAWUT KHANARNAN </h5>
+                <span class="role">ID:6507012660044</span>
+            </div>
+            <div class="team-item">
+                <img src="/images/Team_members/Sun.jpg" alt="">
+                <h5 class="member-name">PANUWAT MANGKANG</h5>
+                <span class="role">ID:6507012660109</span>
+            </div>
+            <div class="team-item">
+                <img src="/images/Team_members/Boat.png" alt="">
+                <h5 class="member-name">SUPANAT SANSUK</h5>
+                <span class="role">ID:6507012663027</span>
+            </div>
+        </div>
+    </section>
+    <!--================== Our Team Section Ends Here -->
+
+    <!--================== Footer Starts from Here ==================-->
+    <%- include("./partials/footer.ejs") %>
+        <!--================== Footer Ends Here -->
+
+</body>
+<script src="script.js"></script>
 
 </html>

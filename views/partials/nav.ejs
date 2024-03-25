@@ -1,20 +1,64 @@
-<nav>
-    <div class="site-title">
-        <a href="/">
-            <h1>Welcome to the zoo!</h1>
-        </a>
-        <p>A Zoo Site</p>
+<nav class="navbar">
+    <div class="container">
+        <div class="row">
+            <div class="nav-column">
+                <div class="site-title">
+                    <a href="/zoo"><img src="/images/LOGO-KMUTNB.png " alt="" style="width: 80px; height: 80px;"></a>
+
+                    <a href="/zoo">WELCOME TO THE I-ZOO!</a>
+
+                    <!-- <h1>Welcome to the zoo!</h1> -->
+                    <!-- </a>
+                    <p style="font-size:20px;margin-left: 20px;margin-top: 10px;">A Zoo Site</p> -->
+                </div>
+            </div>
+            <div class="nav-column">
+                <ul class="buttons">
+                    <% if (collectionType === 'zoo') { %>
+
+                        <li>
+                            <a href="/land_animals ">
+                                <button class="navbtn" role="button">Land Animals</button>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="/aquatic_animals ">
+                                <button class="navbtn" role="button">Aquatic Animals</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/birds ">
+                                <button class="navbtn" role="button">Birds</button>
+                            </a>
+
+                        </li>
+                        <% } else { %>
+                            <li>
+                                <a href="/land_animals">
+                                    <button class="navbtn" role="button">Land Animals</button>
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="/aquatic_animals">
+                                    <button class="navbtn" role="button">Aquatic Animals</button>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/birds">
+                                    <button class="navbtn" role="button">Birds</button>
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="/<%= collectionType %>/create">
+                                    <button class="navbtn" role="button">Add an animal</button>
+                                </a>
+                                <% } %>
+                </ul>
+            </div>
+        </div>
+
     </div>
-    <ul>
-        <% if (collectionType === 'zoo') { %>
-            <li><a href="/land_animals">Land</a></li>
-            <li><a href="/aquatic_animals">Aqua</a></li>
-            <li><a href="/birds">Bird</a></li>
-            <% } else { %>
-                <li><a href="/land_animals">Land</a></li>
-                <li><a href="/aquatic_animals">Aqua</a></li>
-                <li><a href="/birds">Bird</a></li>
-                <li><a href="/<%= collectionType %>/create">Add an animal</a></li>
-                <% } %>
-    </ul>
 </nav>

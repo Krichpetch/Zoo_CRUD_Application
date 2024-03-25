@@ -6,13 +6,31 @@
 
             <div class="create-blog content">
                 <form id="update_data" action="/<%= collectionType %>/update/<%= animal._id %>" method="post">
-                    <label for="title">Animal title:</label>
-                    <input type="text" id="title" name="title" required value="<%= animal.title %>">
-                    <label for="snippet">Animal snippet:</label>
-                    <input type="text" id="snippet" name="snippet" value="<%= animal.snippet %>" required>
-                    <label for="body">Animal body:</label>
-                    <textarea id="body" name="body" required><%= animal.body %></textarea>
-                    <input type="submit" value="Save">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required value="<%= animal.name %>">
+
+                    <label for="sciName">Scientific Name:</label>
+                    <textarea id="sciName" name="sciName" required><%= animal.sciName %> </textarea>
+
+                    <label for="species">Kingdom-Species:</label>
+                    <textarea id="species" name="species" required><%= animal.species %> </textarea>
+
+                    <label for="habitat">Habitat:</label>
+                    <textarea id="habitat" name="habitat" required><%= animal.habitat %> </textarea>
+
+                    <label for="lifespan">Lifespan:</label>
+                    <input type="Number" id="lifespan" name="lifespan" maxlength="10" required value="<%= animal.lifespan %>">
+
+                    <label for="fullDetail">Details:</label>
+                    <textarea id="fullDetail" name="fullDetail" required><%= animal.fullDetail %> </textarea>
+
+                    <label for="shortDetail">Short details (max 100 characters):</label>
+                    <input type="text" id="shortDetail" name="shortDetail" maxlength="100" required value="<%= animal.shortDetail %>">
+
+                    <label for="imgURL">imgURL:</label>
+                    <input type="text" id="imgURL" name="imgURL" value="<%= animal.imgURL %>">
+
+                    <input class="submitbtn" type="submit" value="Save">
                 </form>
             </div>
             <%- include("./partials/footer.ejs") %>
