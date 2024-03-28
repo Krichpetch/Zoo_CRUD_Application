@@ -27,6 +27,8 @@ const getCollectionType = (path) => {
         collectionType = 'aquatic_animals';
     } else if (path.startsWith('/birds')) {
         collectionType = 'birds';
+    } else if (path.startsWith('/about')) {
+        collectionType = 'about';
     }
     return collectionType;
 };
@@ -95,6 +97,7 @@ const animal_details = (req, res) => {
     }
 };
 
+//Render the animal creation form page
 const animal_create_get = (req, res) => {
     const path = req.originalUrl; // Get the path from request object
     const Model = getModel(path);
@@ -105,6 +108,7 @@ const animal_create_get = (req, res) => {
     res.render('create', { collectionType: collectionType, title: `Add a ${title}`, endpoint: `/${collectionType}` });
 };
 
+//Post data from create.ejs to MongoDB
 const animal_create_post = (req, res) => {
     const path = req.originalUrl; // Get the path from request object
     const Model = getModel(path);
@@ -122,6 +126,7 @@ const animal_create_post = (req, res) => {
     }
 };
 
+//Render the animal update form page
 const animal_update_get = (req, res) => {
     const id = req.params.id; // Get the id from the request object
     const path = req.originalUrl; // Get the path from request object
@@ -143,6 +148,7 @@ const animal_update_get = (req, res) => {
     }
 };
 
+//Post data from edit.ejs to MongoDB
 const animal_update_post = (req, res) => {
     const id = req.params.id;
     const path = req.originalUrl; // Get the path from request object
@@ -160,6 +166,7 @@ const animal_update_post = (req, res) => {
     }
 };
 
+//Delete an animal from MongoDB 
 const animal_delete = (req, res) => {
     const path = req.originalUrl; // Get the path from request object
     const collectionType = getCollectionType(path);
@@ -177,6 +184,7 @@ const animal_delete = (req, res) => {
     }
 };
 
+//Export the modules for other files to call
 module.exports = {
     zoo_index,
     animal_List,

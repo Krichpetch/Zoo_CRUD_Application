@@ -3,28 +3,6 @@
 
     <body>
         <%- include("./partials/nav.ejs") %>
-
-            <!-- <div class="index content"> -->
-
-            <!-- Render List of land animals
-
-                <% if (animals.length> 0) { %>
-                    <% animals.forEach(animal=> { %>
-                        <a class="single" href="/<%= collectionType %>/<%= animal._id %>">
-                            <h3 class="title">
-                                <%= animal.name %>
-                            </h3>
-                            <p class="snippet">
-                                <%= animal.shortDetail %>
-                            </p>
-                        </a>
-                        <% }) %>
-                            <% } else { %>
-                                <p>There are no land animals to display...</p>
-                                <% } %> -->
-
-
-            <!-- </div> -->
             <section class="animals-list">
                 <h2 class="list-title">
                     <%= title %> in I-ZOO
@@ -51,27 +29,7 @@
                                         <%= collectionType %> to display...</p>
                                     <% } %>
                 </ul>
-
-                <!-- <div style="width: 200px; height: 200px; background-color: aquamarine; ">
-                    <div>
-                        <img src="" alt="">
-                        <p>as</p>
-                    </div>
-                </div>
-                <div style="width: 200px; height: 200px; background-color: aquamarine; margin-left: 100px; ">
-                    <div>
-                        <img src="" alt="">
-                        <p>as</p>
-                    </div>
-                </div>
-                <div style="width: 200px; height: 200px; background-color: aquamarine; margin-left: 100px; ">
-                    <div>
-                        <img src="" alt="">
-                        <p>as</p>
-                    </div>
-                </div> -->
             </section>
-
 
     </body>
     <!-- ------------------------------------------ -->
